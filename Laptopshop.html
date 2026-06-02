@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaptopShop - Los mejores accesorios para tu laptop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #1a2a4e;
+            --color-secondary: #0ea5e9;
+            --color-white: #ffffff;
+            --color-gray: #f0f4f8;
+            --color-dark-gray: #1e293b;
+            --color-text: #2d3748;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(14, 165, 233, 0.2);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #0d1929 100%);
+            color: var(--color-white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            color: var(--color-secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.7rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus-within {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--color-secondary);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: var(--color-white);
+            outline: none;
+            width: 150px;
+            font-size: 0.9rem;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-bar button {
+            background: var(--color-secondary);
+            color: var(--color-white);
+            border: none;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .search-bar button:hover {
+            background: #0284c7;
+            transform: scale(1.05);
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            color: var(--color-secondary);
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+            }
+
+            .search-bar {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 5rem 2rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid var(--color-secondary);
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* SECTION CONTAINER */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* PRODUCTOS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .product-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--color-gray) 0%, #e2e8f0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            min-height: 2.2rem;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+            min-height: 2rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--color-secondary);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        /* OFERTAS */
+        .offers {
+            background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .offer-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--color-secondary);
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: #ef4444;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .offer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* FORMULARIO */
+        .form-section {
+            background: var(--color-gray);
+        }
+
+        .form-container {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #0284c7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* TESTIMONIOS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .social-links a:hover {
+            background: #0284c7;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* NOTIFICACIÓN */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            animation: slideIn 0.3s ease-out;
+            z-index: 2000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .notification.hide {
+            animation: slideOut 0.3s ease-out forwards;
+        }
+
+        /* MENU MÓVIL */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-mobile.active {
+                display: flex;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--color-primary);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            nav a {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+
+<style id="chatbot-v2">
+#chatbot-btn{position:fixed;bottom:20px;right:20px;width:65px;height:65px;border-radius:50%;background:#0ea5e9;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;cursor:pointer;z-index:9999}
+#chatbot{position:fixed;bottom:95px;right:20px;width:380px;height:560px;background:#fff;border-radius:14px;box-shadow:0 0 20px rgba(0,0,0,.2);display:none;flex-direction:column;z-index:9999}
+#chatHeader{background:#1a2a4e;color:white;padding:12px;font-weight:bold}
+#chatBody{flex:1;overflow:auto;padding:12px;background:#f8fafc}
+#chatInputArea{display:flex;border-top:1px solid #ddd}
+#chatInput{flex:1;padding:10px;border:none}
+.chat-btn{display:block;width:100%;padding:10px;margin:5px 0;border:none;border-radius:8px;background:#0ea5e9;color:white;cursor:pointer}
+.chat-msg{background:white;padding:10px;border-radius:8px;margin-bottom:8px}
+</style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                💻 LaptopShop
+            </div>
+            <nav id="navMenu">
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#ofertas">Ofertas</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos...">
+                <button onclick="searchProducts()">🔍</button>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Los mejores accesorios para tu laptop</h1>
+            <p>Calidad, tecnología y precios accesibles</p>
+            <button class="btn" onclick="scrollToSection('productos')">Comprar Ahora</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="section" id="productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Se llenará con JavaScript -->
+        </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section class="section offers" id="ofertas">
+        <h2 class="section-title" style="color: white;">Ofertas Especiales</h2>
+        <div class="offers-grid">
+            <div class="offer-card">
+                <div class="offer-badge">20% OFF</div>
+                <h3>Accesorios Gamer</h3>
+                <p>Descuento especial en mouses, teclados y pads gamer. Aprovecha esta oferta limitada.</p>
+            </div>
+            <div class="offer-card">
+                <div class="offer-badge">GRATIS</div>
+                <h3>Delivery Gratis</h3>
+                <p>En todas las compras mayores a S/150. Llegamos a toda la ciudad en 24-48 horas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="section form-section" id="contacto">
+        <h2 class="section-title">Realizar Pedido a Domicilio</h2>
+        <div class="form-container">
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Nombre Completo *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Número de Celular *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Dirección *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product">Producto *</label>
+                        <select id="product" name="product" required>
+                            <option value="">Seleccionar producto...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Cantidad *</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Comentarios Adicionales</label>
+                    <textarea id="comments" name="comments" placeholder="Escribe aquí tus comentarios..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Realizar Pedido</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="section">
+        <h2 class="section-title">Testimonios de Clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Excelente tienda, productos de muy buena calidad y entrega rápida. Definitivamente vuelvo a comprar."</p>
+                <p class="testimonial-author">- María García</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Los precios son muy competitivos y el servicio al cliente es de primera. Muy recomendado."</p>
+                <p class="testimonial-author">- Carlos López</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Fantástico sitio web, fácil de usar y excelente variedad de productos. Ya compré varias veces."</p>
+                <p class="testimonial-author">- Jessica Martínez</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>🏢 LaptopShop</h4>
+                <p>Tu tienda de confianza para accesorios de laptop de calidad.</p>
+                <p>Comprometidos con tu satisfacción desde 2026.</p>
+            </div>
+            <div class="footer-section">
+                <h4>📞 Contacto</h4>
+                <p>Teléfono: +51 999 123 456</p>
+                <p>Email: info@laptopshop.pe</p>
+                <p>Horario: Lun-Dom 9:00 AM - 8:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h4>🌐 Síguenos</h4>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Twitter">𝕏</a>
+                    <a href="#" title="WhatsApp">💬</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LaptopShop. Todos los derechos reservados. | Diseñado con ❤️ para ti</p>
+        </div>
+    </footer>
+<div id="chatbot-btn">💬</div>
+<div id="chatbot">
+<div id="chatHeader">LaptopShop Assistant</div>
+<div id="chatBody"></div>
+<div id="chatInputArea">
+<input id="chatInput" placeholder="También puedes escribir...">
+<button onclick="sendQuestion()">➤</button>
+</div>
+</div>
+
+
+    <script>
+        // PRODUCTOS
+        const products = [
+            { id: 1, name: "Mouse Gamer RGB", price: 65, description: "Precisión y estilo" },
+            { id: 2, name: "Teclado Inalámbrico", price: 85, description: "Comodidad absoluta" },
+            { id: 3, name: "Base Refrigerante para Laptop", price: 90, description: "Temperatura óptima" },
+            { id: 4, name: "Mochila para Laptop", price: 110, description: "Protección segura" },
+            { id: 5, name: "Hub USB Multiport", price: 70, description: "Conectividad total" },
+            { id: 6, name: "Audífonos Bluetooth", price: 120, description: "Sonido cristalino" },
+            { id: 7, name: "Disco SSD Externo", price: 220, description: "Almacenamiento rápido" },
+            { id: 8, name: "Monitor Portátil", price: 350, description: "Pantalla extra" },
+            { id: 9, name: "Cargador Universal", price: 95, description: "Compatible con todo" },
+            { id: 10, name: "Protector de Cámara Web", price: 25, description: "Tu privacidad" },
+            { id: 11, name: "Kit de Limpieza para Laptop", price: 35, description: "Mantén limpio" },
+            { id: 12, name: "Lámpara LED USB", price: 30, description: "Iluminación perfecta" },
+            { id: 13, name: "Adaptador Wi-Fi USB", price: 60, description: "Conexión mejorada" },
+            { id: 14, name: "Mouse Pad Gamer", price: 40, description: "Base antideslizante" },
+            { id: 15, name: "Webcam HD", price: 150, description: "Imagen nítida" },
+            { id: 16, name: "Parlantes USB", price: 80, description: "Sonido envolvente" },
+            { id: 17, name: "Funda Protectora para Laptop", price: 55, description: "Protección máxima" },
+            { id: 18, name: "Soporte Ergonómico para Laptop", price: 100, description: "Postura perfecta" }
+        ];
+
+        const emojis = ["🖱️", "⌨️", "❄️", "🎒", "🔌", "🎧", "💾", "🖥️", "🔋", "📹", "🧹", "💡", "📡", "🖱️", "📹", "🔊", "🛡️", "🏗️"];
+
+        let cart = [];
+
+        // Renderizar productos
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map((product, index) => `
+                <div class="product-card">
+                    <div class="product-image">${emojis[index]}</div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-desc">${product.description}</div>
+                        <div class="product-price">S/ ${product.price}</div>
+                        <button class="btn-add-cart" onclick="addToCart(${product.id})">Agregar al carrito</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Agregar al carrito
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartCount();
+            showNotification(`${product.name} agregado al carrito`);
+        }
+
+        // Actualizar contador del carrito
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        // Mostrar notificación
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('hide');
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // Toggle carrito
+        function toggleCart() {
+            if (cart.length === 0) {
+                showNotification('Tu carrito está vacío');
+                return;
+            }
+
+            let cartSummary = 'CARRITO:\n\n';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                cartSummary += `${item.name} x${item.quantity} = S/ ${itemTotal}\n`;
+            });
+
+            cartSummary += `\n--- TOTAL: S/ ${total} ---`;
+            alert(cartSummary);
+        }
+
+        // Buscar productos
+        function searchProducts() {
+            const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(searchTerm));
+
+            if (filtered.length === 0) {
+                alert('No se encontraron productos');
+                return;
+            }
+
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = filtered.map((product, index) => {
+                const originalIndex = products.indexOf(product);
+                return `
+                    <div class="product-card">
+                        <div class="product-image">${emojis[originalIndex]}</div>
+                        <div class="product-info">
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-desc">${product.description}</div>
+                            <div class="product-price">S/ ${product.price}</div>
+                            <button class="btn-add-cart" onclick="addToCart(${product.id})">Agregar al carrito</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Enviar pedido
+        function submitOrder(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const comments = document.getElementById('comments').value;
+
+            if (!product) {
+                alert('Por favor selecciona un producto');
+                return;
+            }
+
+            const pedidoMessage = `
+Nuevo Pedido Recibido:
+- Nombre: ${fullName}
+- Teléfono: ${phone}
+- Dirección: ${address}
+- Producto: ${product}
+- Cantidad: ${quantity}
+- Comentarios: ${comments || 'Ninguno'}
+
+¡Pedido confirmado! Nos contactaremos pronto.
+            `;
+
+            alert(pedidoMessage);
+            document.getElementById('orderForm').reset();
+            showNotification('Pedido realizado exitosamente');
+        }
+
+        // Llenar select de productos
+        function fillProductSelect() {
+            const select = document.getElementById('product');
+            products.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product.name;
+                option.textContent = `${product.name} - S/ ${product.price}`;
+                select.appendChild(option);
+            });
+        }
+
+        // Toggle menú móvil
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('active');
+        }
+
+        // Scroll a sección
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            fillProductSelect();
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+    
+const bot=document.getElementById('chatbot');
+const bodyChat=document.getElementById('chatBody');
+let nombre='';
+
+document.getElementById('chatbot-btn').onclick=()=>{
+ bot.style.display=bot.style.display==='flex'?'none':'flex';
+ if(bodyChat.innerHTML==='') pedirNombre();
+};
+
+function pedirNombre(){
+ bodyChat.innerHTML=`<div class='chat-msg'>👋 Bienvenido a LaptopShop. ¿Cuál es tu nombre?</div>
+ <input id='nombreCliente' style='width:100%;padding:10px'>
+ <button class='chat-btn' onclick='guardarNombre()'>Continuar</button>`;
+}
+
+function guardarNombre(){
+ nombre=document.getElementById('nombreCliente').value||'Cliente';
+ menu();
+}
+
+function menu(){
+ bodyChat.innerHTML=`
+ <div class='chat-msg'>Hola ${nombre} 👋 ¿En qué puedo ayudarte?</div>
+ <button class='chat-btn' onclick='precios()'>💰 Precios</button>
+ <button class='chat-btn' onclick='recomendaciones()'>⭐ Recomendaciones</button>
+ <button class='chat-btn' onclick='ofertas()'>🎁 Descuentos</button>
+ <button class='chat-btn' onclick='delivery()'>🚚 Delivery</button>
+ <button class='chat-btn' onclick='contacto()'>📞 Contacto</button>`;
+}
+
+function volver(){return "<button class='chat-btn' onclick='menu()'>⬅ Volver</button>";}
+
+function precios(){
+ bodyChat.innerHTML="<div class='chat-msg'><b>Productos y precios</b><br>🖱️ Mouse Gamer RGB S/65<br>⌨️ Teclado Inalámbrico S/85<br>❄️ Base Refrigerante S/90<br>🎒 Mochila Laptop S/110<br>🎧 Audífonos Bluetooth S/120<br>💾 SSD Externo S/220<br>📹 Webcam HD S/150</div>"+volver();
+}
+
+function recomendaciones(){
+ bodyChat.innerHTML=`
+ <div class='chat-msg'>Selecciona una categoría:</div>
+ <button class='chat-btn' onclick='recGaming()'>🎮 Gaming</button>
+ <button class='chat-btn' onclick='recEstudio()'>📚 Estudio</button>
+ <button class='chat-btn' onclick='recTrabajo()'>💼 Trabajo</button>`+volver();
+}
+
+function recGaming(){
+ bodyChat.innerHTML="<div class='chat-msg'><b>Mouse Gamer RGB - S/65</b><br>Alta precisión, iluminación RGB y diseño ergonómico para largas sesiones de juego.<br><br><b>Audífonos Bluetooth - S/120</b><br>Sonido envolvente y comodidad para gaming y multimedia.</div>"+volver();
+}
+function recEstudio(){
+ bodyChat.innerHTML="<div class='chat-msg'><b>Teclado Inalámbrico - S/85</b><br>Escritura cómoda y sin cables.<br><br><b>Soporte Ergonómico - S/100</b><br>Mejora la postura y reduce la fatiga durante el estudio.</div>"+volver();
+}
+function recTrabajo(){
+ bodyChat.innerHTML="<div class='chat-msg'><b>Webcam HD - S/150</b><br>Imagen nítida para videollamadas.<br><br><b>SSD Externo - S/220</b><br>Almacenamiento rápido y seguro para archivos importantes.</div>"+volver();
+}
+
+function ofertas(){bodyChat.innerHTML="<div class='chat-msg'>🎁 20% OFF en accesorios gamer.<br>🚚 Delivery gratis desde S/150.</div>"+volver();}
+function delivery(){bodyChat.innerHTML="<div class='chat-msg'>Delivery en 24-48 horas. Gratis para compras mayores a S/150.</div>"+volver();}
+function contacto(){bodyChat.innerHTML="<div class='chat-msg'>📞 +51 999 123 456<br>✉ info@laptopshop.pe</div>"+volver();}
+
+function sendQuestion(){
+ const q=document.getElementById('chatInput').value.toLowerCase();
+ let r="Puedes preguntar por precios, delivery, descuentos, gaming, estudio, trabajo, webcam, SSD o contacto.";
+ if(q.includes('precio')) r='Selecciona "Precios" para ver todo el catálogo.';
+ if(q.includes('delivery')) r='El delivery es gratis desde S/150.';
+ if(q.includes('gaming')) r='Recomiendo Mouse Gamer RGB y Audífonos Bluetooth.';
+ if(q.includes('estudio')) r='Recomiendo Teclado Inalámbrico y Soporte Ergonómico.';
+ if(q.includes('trabajo')) r='Recomiendo Webcam HD y SSD Externo.';
+ if(q.includes('ssd')) r='SSD Externo: S/220. Ideal para almacenamiento rápido.';
+ if(q.includes('webcam')) r='Webcam HD: S/150. Excelente para videollamadas.';
+ bodyChat.innerHTML += `<div class='chat-msg'><b>Pregunta:</b> ${q}</div><div class='chat-msg'><b>Respuesta:</b> ${r}</div>`;
+ document.getElementById('chatInput').value='';
+ bodyChat.scrollTop=bodyChat.scrollHeight;
+}
+</script>
+</body>
+</html>
